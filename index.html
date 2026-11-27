@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据可视化分析仪表盘</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- 头部 -->
+    <header class="header">
+      <h1>📊 数据可视化分析仪表盘</h1>
+      <div class="header-right">
+        <div class="time-range">
+          <button class="range-btn active" data-range="realtime">实时</button>
+          <button class="range-btn" data-range="today">今日</button>
+          <button class="range-btn" data-range="week">本周</button>
+          <button class="range-btn" data-range="month">本月</button>
+        </div>
+        <div class="clock" id="clock"></div>
+      </div>
+    </header>
+
+    <!-- KPI 指标卡 -->
+    <section class="kpi-row" id="kpiRow">
+      <div class="kpi-card">
+        <div class="kpi-label">总访问量 (PV)</div>
+        <div class="kpi-value" id="kpiPv">0</div>
+        <div class="kpi-trend up" id="kpiPvTrend">--</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">独立访客 (UV)</div>
+        <div class="kpi-value" id="kpiUv">0</div>
+        <div class="kpi-trend up" id="kpiUvTrend">--</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">销售额</div>
+        <div class="kpi-value" id="kpiSales">¥0</div>
+        <div class="kpi-trend up" id="kpiSalesTrend">--</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">转化率</div>
+        <div class="kpi-value" id="kpiConv">0%</div>
+        <div class="kpi-trend up" id="kpiConvTrend">--</div>
+      </div>
+    </section>
+
+    <!-- 图表区 -->
+    <section class="chart-grid">
+      <div class="chart-panel large">
+        <h3>访问趋势</h3>
+        <div class="chart" id="trendChart"></div>
+      </div>
+      <div class="chart-panel">
+        <h3>流量来源占比</h3>
+        <div class="chart" id="sourceChart"></div>
+      </div>
+      <div class="chart-panel">
+        <h3>品类销售排行</h3>
+        <div class="chart" id="barChart"></div>
+      </div>
+      <div class="chart-panel">
+        <h3>目标完成率</h3>
+        <div class="chart" id="gaugeChart"></div>
+      </div>
+      <div class="chart-panel large">
+        <h3>各渠道转化漏斗</h3>
+        <div class="chart" id="funnelChart"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span id="lastUpdate"></span>
+      <button class="refresh-btn" id="btnRefresh">🔄 手动刷新</button>
+    </footer>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
