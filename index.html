@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="DLOYdHbnw4GLoRmzE2cq8w">
+<head data-page-node-id="BEFlIGt5poAWm7122skBts">
+  <meta charset="UTF-8" data-page-node-id="TAsLAFwogTcYdBBkNk4mqr">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="WUmwuIzJvtrx0yEG6au6MZ">
+  <title>数据可视化分析仪表盘</title>
+  <link rel="stylesheet" href="style.css" data-page-node-id="depGwhweXsxeG6zA7hCEbX">
+  <script src="echarts.min.js"></script>
+</head>
+<body data-page-node-id="PkKqkBA9ALqUFmhTKuJjxl">
+  <div class="dashboard" data-page-node-id="tiBafFVETr6DaGHLu07Zs2">
+    <!-- 头部 -->
+    <header class="header" data-page-node-id="nzjnIHDLntvgwEZrHdOcGQ">
+      <h1 data-page-node-id="O6JgeqZbgY9CZTVLZvBC0H">📊 数据可视化分析仪表盘</h1>
+      <div class="header-right" data-page-node-id="FOUpROSQ9MJW2Um9pbHdrR">
+        <div class="time-range" data-page-node-id="CcbjhVZ9KsRopAyI8ILVER">
+          <button class="range-btn active" data-range="realtime" data-page-node-id="7Vpo5wVaRf439BNhlK9Q7n">实时</button>
+          <button class="range-btn" data-range="today" data-page-node-id="4QOrQ1S5ee6svt9ZRBHLRH">今日</button>
+          <button class="range-btn" data-range="week" data-page-node-id="F4DIr1SwosaDuj2IfOJfTu">本周</button>
+          <button class="range-btn" data-range="month" data-page-node-id="j27zCHkAfCcgmNUQDP3uFm">本月</button>
+        </div>
+        <div class="clock" id="clock" data-page-node-id="IDF2yoOj9dO8lL09bVVQcC"></div>
+      </div>
+    </header>
+
+    <!-- KPI 指标卡 -->
+    <section class="kpi-row" id="kpiRow" data-page-node-id="yIgDPgGW0NjKh8lcQNPjj5">
+      <div class="kpi-card" data-page-node-id="c2Zhv7EiC1w1QKeHkmP1ay">
+        <div class="kpi-label" data-page-node-id="Xn2pQ9iL2sDfRq7y80ROIg">总访问量 (PV)</div>
+        <div class="kpi-value" id="kpiPv" data-page-node-id="WkcOXcbdFPAzGJZ8UGTcmT">0</div>
+        <div class="kpi-trend up" id="kpiPvTrend" data-page-node-id="2hDwscMz7a0wHS9tdSvS3g">--</div>
+      </div>
+      <div class="kpi-card" data-page-node-id="0JXSqeJZHi66MDYkSn2HmF">
+        <div class="kpi-label" data-page-node-id="LfT986uGMEApnNcFj9k0ea">独立访客 (UV)</div>
+        <div class="kpi-value" id="kpiUv" data-page-node-id="Rz5Fauw4c0ACCtgpbPSPzh">0</div>
+        <div class="kpi-trend up" id="kpiUvTrend" data-page-node-id="xld1hh11254n0U1J57D2IP">--</div>
+      </div>
+      <div class="kpi-card" data-page-node-id="DYYtaUdugVMOYUjEoGR8gI">
+        <div class="kpi-label" data-page-node-id="KR9HxbbEXz0Eu7FJRVKEsY">销售额</div>
+        <div class="kpi-value" id="kpiSales" data-page-node-id="MB2ScB89CnWIEl8QNIRXvt">¥0</div>
+        <div class="kpi-trend up" id="kpiSalesTrend" data-page-node-id="vVzhW8VlAOtvfSeMFDPlRl">--</div>
+      </div>
+      <div class="kpi-card" data-page-node-id="TyeCvSlDRMf0bagT3Bk0jO">
+        <div class="kpi-label" data-page-node-id="XUBAk1oHCijS2jxI5V80SU">转化率</div>
+        <div class="kpi-value" id="kpiConv" data-page-node-id="zBuueWjJpDfRyOBqQm0lMH">0%</div>
+        <div class="kpi-trend up" id="kpiConvTrend" data-page-node-id="IfE6lS6ijaE3Sv72GuCpE4">--</div>
+      </div>
+    </section>
+
+    <!-- 图表区 -->
+    <section class="chart-grid" data-page-node-id="sF4mwV9CvWBnYTiLtQCwn3">
+      <div class="chart-panel large" data-page-node-id="Obnm3nv8jhw5aG5nwdP8X0">
+        <h3 data-page-node-id="29ajk4HPYvclFNYgGSPr3A">访问趋势</h3>
+        <div class="chart" id="trendChart" data-page-node-id="Bmbm4Xh4P3qnd9o7txfgTC"></div>
+      </div>
+      <div class="chart-panel" data-page-node-id="JDKJmSaCwfWM01tJu0HBbc">
+        <h3 data-page-node-id="sPODhVyEooInEcDxL9KbFm">流量来源占比</h3>
+        <div class="chart" id="sourceChart" data-page-node-id="WB1mjCO0Rr1GDLScjUM9Ie"></div>
+      </div>
+      <div class="chart-panel" data-page-node-id="9qKrK355fifXcfMKS8URQX">
+        <h3 data-page-node-id="jtjXQaCTh7GosqwvEtLGdH">品类销售排行</h3>
+        <div class="chart" id="barChart" data-page-node-id="s2CZxqoFQorNS0RYwDeg6t"></div>
+      </div>
+      <div class="chart-panel" data-page-node-id="49ZtJtrJh1MxEB71nGflXs">
+        <h3 data-page-node-id="mXTjWaYRoG5B5nh7pFcpCj">目标完成率</h3>
+        <div class="chart" id="gaugeChart" data-page-node-id="dj8bkamp9t421GN4dMkcNn"></div>
+      </div>
+      <div class="chart-panel large" data-page-node-id="GBK3MZKKUhdjcBNBwuFZnD">
+        <h3 data-page-node-id="VlGKPPJDIGmjEGFeVG0gEm">各渠道转化漏斗</h3>
+        <div class="chart" id="funnelChart" data-page-node-id="kVlGtX1B8q4AhX9pu73npj"></div>
+      </div>
+    </section>
+
+    <footer class="footer" data-page-node-id="ZdxpUN4In2EmAxO5xWVDUP">
+      <span id="lastUpdate" data-page-node-id="Fss4faAvTBq1sMjwj5M5cL"></span>
+      <button class="refresh-btn" id="btnRefresh" data-page-node-id="0QRa8lETiCmC5BCJzyW4Vd">🔄 手动刷新</button>
+    </footer>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>

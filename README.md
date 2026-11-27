@@ -13,7 +13,7 @@
 
 ## 使用方法
 
-直接用浏览器打开 `index.html` 即可（图表库通过 CDN 加载，需联网）。
+直接用浏览器打开 `index.html` 即可（ECharts 已本地内置，无需联网）。
 
 ## 接入真实数据
 
@@ -24,9 +24,10 @@
 
 ```
 data-dashboard/
-├── index.html    # 页面结构
-├── style.css     # 深色主题样式
-└── dashboard.js  # 图表渲染与数据逻辑
+├── index.html     # 页面结构
+├── style.css      # 深色主题样式
+├── dashboard.js   # 图表渲染与数据逻辑
+└── echarts.min.js # 本地内置的 ECharts 5 库（离线可用）
 ```
 
 ## License
