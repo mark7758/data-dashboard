@@ -99,13 +99,14 @@
   };
 
   /* ---------- 图表初始化 ---------- */
-  const charts = {
-    trend: echarts.init(document.getElementById("trendChart")),
-    source: echarts.init(document.getElementById("sourceChart")),
-    bar: echarts.init(document.getElementById("barChart")),
-    gauge: echarts.init(document.getElementById("gaugeChart")),
-    funnel: echarts.init(document.getElementById("funnelChart")),
-  };
+  const charts = {};
+  ["trendChart", "sourceChart", "barChart", "gaugeChart", "funnelChart"].forEach((id) => {
+    try {
+      charts[id.replace("Chart", "")] = echarts.init(document.getElementById(id));
+    } catch (e) {
+      console.error("图表初始化失败:", id, e);
+    }
+  });
 
   let currentRange = "realtime";
   let kpi = genKpi();
