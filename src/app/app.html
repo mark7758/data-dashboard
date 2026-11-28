@@ -1,0 +1,39 @@
+<div class="dashboard">
+  <app-header />
+
+  <!-- KPI 指标卡 -->
+  <section class="kpi-row">
+    @for (k of kpis(); track k.label) {
+      <app-kpi-card [label]="k.label" [value]="k.value" [trend]="k.trend" />
+    }
+  </section>
+
+  <!-- 图表区 -->
+  <section class="chart-grid">
+    <div class="chart-panel large">
+      <h3>访问趋势</h3>
+      <app-chart [option]="trendOpt()" />
+    </div>
+    <div class="chart-panel">
+      <h3>流量来源占比</h3>
+      <app-chart [option]="sourceOpt()" />
+    </div>
+    <div class="chart-panel">
+      <h3>品类销售排行</h3>
+      <app-chart [option]="barOpt()" />
+    </div>
+    <div class="chart-panel">
+      <h3>目标完成率</h3>
+      <app-chart [option]="gaugeOpt()" />
+    </div>
+    <div class="chart-panel large">
+      <h3>各渠道转化漏斗</h3>
+      <app-chart [option]="funnelOpt()" />
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>{{ lastUpdate() }}</span>
+    <button class="refresh-btn" (click)="refresh()">🔄 手动刷新</button>
+  </footer>
+</div>

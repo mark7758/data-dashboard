@@ -1,0 +1,38 @@
+/* 全局样式：深色科技风主题 */
+:root {
+  --bg: #0d1421;
+  --panel: #16213a;
+  --panel-border: #253357;
+  --text: #e6ecf5;
+  --text-dim: #8b98b8;
+  --accent: #4fc3f7;
+  --green: #34d399;
+  --red: #f87171;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+/* KPI 卡片行 */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
