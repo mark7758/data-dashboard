@@ -21,8 +21,8 @@ const fmtInt = (v: number) => Math.floor(v).toLocaleString();
   styleUrl: './app.css',
 })
 export class App {
-  /** 上一次 KPI 数据（用于计算环比） */
-  private readonly prevKpi = signal<KpiData | null>(null);
+  /** 上一次 KPI 数据（用于计算环比）；注意不能在 computed 内写 signal，故使用普通字段 */
+  private prevKpi: KpiData | null = null;
 
   readonly lastUpdate = signal('');
 
@@ -34,7 +34,7 @@ export class App {
 
   readonly kpis = computed(() => {
     const d: DashboardData = this.data.data();
-    const prev = this.prevKpi();
+    const prev = this.prevKpi;
     const trendOf = (now: number, before: number | undefined) =>
       prev && before ? +(((now - before) / (before || 1)) * 100).toFixed(1) : null;
     const cards = [
@@ -43,7 +43,6 @@ export class App {
       { label: '销售额', value: '¥' + fmtInt(d.kpi.sales), trend: trendOf(d.kpi.sales, prev?.sales) },
       { label: '转化率', value: d.kpi.conv.toFixed(2) + '%', trend: trendOf(d.kpi.conv, prev?.conv) },
     ];
-    this.prevKpi.set(d.kpi);
     return cards;
   });
 
@@ -56,6 +55,7 @@ export class App {
   }
 
   protected refresh(): void {
+    this.prevKpi = this.data.data().kpi;
     this.data.refresh();
     this.lastUpdate.set(
       '数据更新于 ' + new Date().toLocaleTimeString('zh-CN') + ' · ' + this.data.rangeLabel()
